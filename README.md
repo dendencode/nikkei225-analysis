@@ -158,7 +158,7 @@ FROM with_moving_avg;
 ### 方法1：ローカルでJupyter分析
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/nikkei225-analysis.git
+git clone https://github.com/dendencode/nikkei225-analysis.git
 cd nikkei225-analysis
 pip install -r requirements.txt
 jupyter notebook

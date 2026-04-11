@@ -1,0 +1,32 @@
+version: "3"
+services:
+  etl:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: nikkei225-etl
+    environment:
+      - ENVIRONMENT=production
+      - DB_PATH=/app/data/nikkei225.db
+    volumes:
+      - nikkei225-data:/app/data
+    command: python src/etl.py
+    restart: "no"
+
+  jupyter:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: nikkei225-jupyter
+    ports:
+      - "8888:8888"
+    environment:
+      - ENVIRONMENT=development
+    volumes:
+      - nikkei225-data:/app/data
+      - ../notebooks:/app/notebooks
+    command: jupyter notebook --ip=0.0.0.0 --allow-root --no-browser --NotebookApp.token=''
+    restart: "no"
+
+volumes:
+  nikkei225-data:

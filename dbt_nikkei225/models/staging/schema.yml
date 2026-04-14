@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_nikkei225
+    description: "整理済みの日経225データ"
+    columns:
+      - name: date
+        description: "取引日"
+        tests:
+          - unique
+          - not_null
+      - name: close_price
+        description: "終値"
+        tests:
+          - not_null
+
+  - name: int_daily_metrics
+    description: "日次メトリクス（リターン + 移動平均）"
+    columns:
+      - name: date
+        tests:
+          - unique
+          - not_null
+
+  - name: mart_monthly_summary
+    description: "月次サマリー（Data Mart）"
+    columns:
+      - name: year_month
+        tests:
+          - unique
+          - not_null

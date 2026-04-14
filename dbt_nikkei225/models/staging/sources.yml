@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: main
+    tables:
+      - name: raw_nikkei225
+        description: "yfinance から取得した日経225の生データ"

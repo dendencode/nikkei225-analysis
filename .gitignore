@@ -11,3 +11,8 @@ infrastructure/.env
 dbt_nikkei225/target/
 dbt_nikkei225/logs/
 dbt_nikkei225/dbt_packages/
+
+# Airflow
+airflow/logs/
+airflow/data/
+airflow/plugins/
